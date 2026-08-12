@@ -1,10 +1,9 @@
-## [iConomyUnlocked](https://github.com/LlmDl/iConomyUnlocked) - Developed by [LlmDl](https://github.com/LlmDl)
+## [iConomyRevamped](https://github.com/Luconia/iConomyRevamped)
 
-### Download
+A revamped fork of [iConomyUnlocked](https://github.com/LlmDl/iConomyUnlocked), originally developed by [LlmDl](https://github.com/LlmDl).
 
-#### Download iConomyUnlocked at [Modrinth](https://modrinth.com/plugin/iconomyunlocked)
+---
 
-----
 ### Overview
 
 iConomy's lineage dates back to the first years of Bukkit Plugins, created by Nijikokun. Having around 7 distinct versions, iConomy had its ups and downs over the years. At one point [iConomy 5](https://github.com/iconomy5legacy/iConomy) was taken over by ElgarL, and then ultimately LlmDl.
@@ -13,9 +12,14 @@ Known for its simplicity and resiliance, iConomy 5 served many servers well for 
 
 VaultUnlocked finally adds proper UUID support to the VaultAPI. With that it is finally possible for plugins that use non-player accounts (like Towny,) to integrate with Economy plugins without using Vault's outdated named methods.
 
-iConomyUnlocked has been created to give iConomy 5-using servers an exit path. It support both the VaultAPI and VaultAPI 2, meaning it will work with any Vault plugins and any Vault2 plugins.
+iConomyUnlocked continued that work: it supports both the VaultAPI and VaultAPI 2, meaning it will work with any Vault plugins and any Vault2 plugins.
 
-----
+However iConomyUnlocked hasn't received any updates as of Minecraft version 1.21.10. At Luconia Studios we needed an updated version for our server network and our SMP. For that we've created iConomyRevamped, which add support for the latest versions and the ability to create physical items that can be freely converted between money.
+
+---
+
+
+
 ### Facts
 
 - Supports Vault-based and Vault2(VaultUnlocked)-based plugins that use economies.
@@ -25,13 +29,19 @@ iConomyUnlocked has been created to give iConomy 5-using servers an exit path. I
 - Can import accounts from iConomy 5.26.
 - Supports Minimessage text formatting in the lang file.
 
-----
+---
+
+
+
 ### Requirements:
 
 - [VaultUnlocked](https://github.com/TheNewEconomy/VaultUnlocked) or Vault.
 - Paper or Folia.
 
-----
+---
+
+
+
 ### Commands:
 
 > <> Required, [] Optional
@@ -40,43 +50,47 @@ iConomyUnlocked has been created to give iConomy 5-using servers an exit path. I
   - ?: Help screen.
   - [playername]: View someone else's balance.
   - rank: View your rank in the richest players list.
-  - rank \<playername>: View someone else's rank in the richest players list.
+  - rank playername>: View someone else's rank in the richest players list.
   - top [amount]: View the top richest players.
-  - pay \<player> \<amount>: Pay someone money.
-  - grant \<player> \<amount> \<silent>: Add money to someone's account.
-  - grant \<player> -\<amount> \<silent>: Remove money from someone's account.
-  - set \<player> \<amount>: Set someone's balance.
-  - hide \<player> \<true/false>: Hide or show an account on the top list.
-  - create \<player>: Creates an account with the default balance for a player.
-  - remove \<player>: Removes an account.
-  - reset \<player>: Resets an account to the default balance.
+  - pay player> amount>: Pay someone money.
+  - grant player> amount> silent>: Add money to someone's account.
+  - grant player> -amount> silent>: Remove money from someone's account.
+  - set player> amount>: Set someone's balance.
+  - hide player> true/false>: Hide or show an account on the top list.
+  - create player>: Creates an account with the default balance for a player.
+  - remove player>: Removes an account.
+  - reset player>: Resets an account to the default balance.
   - purge: Removes all default-balance accounts.
   - empty: Empties all accounts.
   - stats: Checks stats about the economy.
   - importiconomy: Imports accounts from iConomy 5.26.
 
-----
+---
+
+
+
 ### Permissions:
 
-  - iConomy.admin:
-    - default: false
-    - children:
-      - iConomy.admin.account.create: true
-      - iConomy.admin.account.remove: true
-      - iConomy.admin.reset: true
-      - iConomy.admin.bank.create: true
-      - iConomy.admin.empty: true
-      - iConomy.admin.purge: true
-      - iConomy.admin.stats: true
-      - iConomy.admin.grant: true
-      - iConomy.admin.hide: true
-      - iConomy.admin.set: true
-      - iConomy.admin.importiconomy: true
-  - iConomy.access:
-    - default: true
-  - iConomy.payment:
-    - default: true
-  - iConomy.rank:
-    - default: true
-  - iConomy.list:
-    - default: op
+- iConomy.admin:
+  - default: false
+  - children:
+    - iConomy.admin.account.create: true
+    - iConomy.admin.account.remove: true
+    - iConomy.admin.reset: true
+    - iConomy.admin.bank.create: true
+    - iConomy.admin.empty: true
+    - iConomy.admin.purge: true
+    - iConomy.admin.stats: true
+    - iConomy.admin.grant: true
+    - iConomy.admin.hide: true
+    - iConomy.admin.set: true
+    - iConomy.admin.importiconomy: true
+- iConomy.access:
+  - default: true
+- iConomy.payment:
+  - default: true
+- iConomy.rank:
+  - default: true
+- iConomy.list:
+  - default: op
+

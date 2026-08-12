@@ -1,9 +1,9 @@
-name: iConomyUnlocked
-main: io.github.townyadvanced.iconomy.iConomyUnlocked
+name: iConomyRevamped
+main: net.luconia.iconomy.iConomyRevamped
 version: ${project.version}
 description: A simple economy plugin with support for VaultUnlocked.
 api-version: ${project.bukkitAPIVersion}
-authors: [Nijikokun, ElgarL, LlmDl]
+authors: [Nijikokun, ElgarL, LlmDl, Luconia]
 load: startup
 folia-supported: true
 
