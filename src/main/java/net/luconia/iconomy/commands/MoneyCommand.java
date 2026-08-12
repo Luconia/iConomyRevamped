@@ -160,15 +160,17 @@ public class MoneyCommand implements TabExecutor {
 
 		Player online = Bukkit.getPlayerExact(name);
 		String format = Settings.format(amount);
+		boolean notifiedRecipient = false;
 		if (online != null && !silent) {
 			String message = amount < 0.0D ? LangStrings.personalDebit(format) : LangStrings.personalCredit(format);
 			Messaging.sendMoneyPrefixedMsg(online, message);
 			showBalance(online, online, true);
+			notifiedRecipient = true;
 		}
 
-		if (controller != null) {
+		// Admin confirmation only — skip when the sender already got the personal notice (self-grant).
+		if (controller != null && !(notifiedRecipient && online.equals(sender))) {
 			String message = amount < 0.0D ? LangStrings.playerDebit(name, format) : LangStrings.playerCredit(name, format);
-			Messaging.sendMoneyPrefixedMsg(online, message);
 			Messaging.send(sender, message);
 		}
 

@@ -86,7 +86,7 @@ public class iConomyRevamped extends JavaPlugin {
 	}
 
 	public String getVersion() {
-		return this.getDescription().getVersion();
+		return this.getPluginMeta().getVersion();
 	}
 	
 	/**
@@ -123,7 +123,7 @@ public class iConomyRevamped extends JavaPlugin {
 		return vault1hooked || vault2hooked;
 	}
 
-	private static Function<Plugin, Boolean> vaultVersionFun = (vault) -> vault.getDescription().getVersion().startsWith("1");
+	private static Function<Plugin, Boolean> vaultVersionFun = (vault) -> vault.getPluginMeta().getVersion().startsWith("1");
 
 	private static boolean vaultUnlockedPresent() {
 		Plugin vault = plugin.getServer().getPluginManager().getPlugin("Vault");

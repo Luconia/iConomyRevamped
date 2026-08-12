@@ -2,12 +2,12 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>iConomyRevamped</groupId>
   <artifactId>iConomyRevamped</artifactId>
-  <version>0.0.14</version>
+  <version>0.1.0</version>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <project.bukkitAPIVersion>1.19</project.bukkitAPIVersion>
-    <java.version>17</java.version>
+    <project.bukkitAPIVersion>26.2</project.bukkitAPIVersion>
+    <java.version>25</java.version>
   </properties>
   <repositories>
     <repository>
@@ -22,8 +22,8 @@
 
     <!-- VaultUnlockedAPI -->
     <repository>
-      <id>codemc-repo</id>
-      <url>https://repo.codemc.org/repository/maven-public</url>
+      <id>codemc-creatorfromhell</id>
+      <url>https://repo.codemc.io/repository/creatorfromhell/</url>
     </repository>
 
     <!-- CommentedConfiguration -->
@@ -51,14 +51,14 @@
     <dependency>
       <groupId>io.papermc.paper</groupId>
       <artifactId>paper-api</artifactId>
-      <version>1.21.8-R0.1-SNAPSHOT</version>
+      <version>[26.2.build,)</version>
       <scope>provided</scope>
     </dependency>
 
     <dependency>
       <groupId>net.milkbowl.vault</groupId>
       <artifactId>VaultUnlockedAPI</artifactId>
-      <version>2.10</version>
+      <version>2.20</version>
       <scope>provided</scope>
     </dependency>
 
@@ -90,7 +90,19 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-shade-plugin</artifactId>
-          <version>3.6.0</version>
+          <version>3.6.2</version>
+          <dependencies>
+            <dependency>
+              <groupId>org.ow2.asm</groupId>
+              <artifactId>asm</artifactId>
+              <version>9.10.1</version>
+            </dependency>
+            <dependency>
+              <groupId>org.ow2.asm</groupId>
+              <artifactId>asm-commons</artifactId>
+              <version>9.10.1</version>
+            </dependency>
+          </dependencies>
           <configuration>
             <dependencyReducedPomLocation>${project.build.directory}/dependency-reduced-pom.xml</dependencyReducedPomLocation>
             <relocations>
