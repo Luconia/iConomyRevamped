@@ -12,7 +12,7 @@ VaultUnlocked finally adds proper UUID support to the VaultAPI. With that it is 
 
 iConomyUnlocked continued that work: it supports both the VaultAPI and VaultAPI 2, meaning it will work with any Vault plugins and any Vault2 plugins.
 
-However iConomyUnlocked hasn't received any updates as of Minecraft version 1.21.10. At Luconia Studios we needed an updated version for our server network and our SMP. For that we've created iConomyRevamped, which add support for the latest versions and the ability to create physical items acting as checks.
+However iConomyUnlocked hasn't received any updates as of Minecraft version 1.21.10. At Luconia Studios we needed an updated version for our server network and our SMP. For that we've created iConomyRevamped, which adds support for the latest versions and the ability to create physical items acting as checks.
 
 ---
 
