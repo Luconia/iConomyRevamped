@@ -1,11 +1,9 @@
 ## [iConomyRevamped](https://github.com/Luconia/iConomyRevamped)
-
-A revamped fork of [iConomyUnlocked](https://github.com/LlmDl/iConomyUnlocked), originally developed by [LlmDl](https://github.com/LlmDl).
+A revamped fork of iConomyUnlocked, originally developed by [LlmDl](https://github.com/LlmDl).
 
 ---
 
 ### Overview
-
 iConomy's lineage dates back to the first years of Bukkit Plugins, created by Nijikokun. Having around 7 distinct versions, iConomy had its ups and downs over the years. At one point [iConomy 5](https://github.com/iconomy5legacy/iConomy) was taken over by ElgarL, and then ultimately LlmDl.
 
 Known for its simplicity and resiliance, iConomy 5 served many servers well for years but it was time to abandon it once [VaultUnlocked](https://github.com/TheNewEconomy/VaultUnlocked) arrived.
@@ -14,14 +12,11 @@ VaultUnlocked finally adds proper UUID support to the VaultAPI. With that it is 
 
 iConomyUnlocked continued that work: it supports both the VaultAPI and VaultAPI 2, meaning it will work with any Vault plugins and any Vault2 plugins.
 
-However iConomyUnlocked hasn't received any updates as of Minecraft version 1.21.10. At Luconia Studios we needed an updated version for our server network and our SMP. For that we've created iConomyRevamped, which add support for the latest versions and the ability to create physical items that can be freely converted between money.
+However iConomyUnlocked hasn't received any updates as of Minecraft version 1.21.10. At Luconia Studios we needed an updated version for our server network and our SMP. For that we've created iConomyRevamped, which add support for the latest versions and the ability to create physical items acting as checks.
 
 ---
 
-
-
 ### Facts
-
 - Supports Vault-based and Vault2(VaultUnlocked)-based plugins that use economies.
 - Supports Folia & Paper, Craftbukkit and Spigot are no longer supported.
 - Supports the H2 and MySQL database types.
@@ -31,19 +26,13 @@ However iConomyUnlocked hasn't received any updates as of Minecraft version 1.21
 
 ---
 
-
-
 ### Requirements:
-
 - [VaultUnlocked](https://github.com/TheNewEconomy/VaultUnlocked) or Vault.
 - Paper or Folia.
 
 ---
 
-
-
 ### Commands:
-
 > <> Required, [] Optional
 
 - /money: View your balance.
@@ -67,10 +56,7 @@ However iConomyUnlocked hasn't received any updates as of Minecraft version 1.21
 
 ---
 
-
-
 ### Permissions:
-
 - iConomy.admin:
   - default: false
   - children:
@@ -93,4 +79,3 @@ However iConomyUnlocked hasn't received any updates as of Minecraft version 1.21
   - default: true
 - iConomy.list:
   - default: op
-

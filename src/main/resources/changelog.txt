@@ -25,3 +25,23 @@
   - New Config Option: currency_settings.vault_displayed_decimal_places
     - Default: 0
     - Default of zero, should display zero decimal places.
+0.1.0:
+  - Updated to 26.2
+0.2.0:
+  - New Feature: Physical bearer checks.
+    - /money check <amount> [quantity]
+    - Convert balance into stackable check items that anyone can redeem by clicking them.
+    - Left- or right-click a check to open a Paper confirmation dialog, then redeem to deposit the face value.
+    - Redeem plays a short gold-themed particle/sound burst that scales with the check amount
+      (stronger around small amounts, capped near 1,000,000).
+    - Quantity defaults to 1; limited by checks.max_quantity (default 64).
+  - New Permission: iConomy.check (default: true)
+    - Required to write checks and to redeem them.
+  - New Config (config.yml):
+    - version - version.version has been migrated to just version
+    - checks.material - item type for checks (default: PAPER)
+    - checks.min_amount - minimum face value when writing (default: 1)
+    - checks.max_amount - maximum face value when writing (default: 1000000)
+    - checks.max_quantity - max quantity per /money check (default: 64)
+    - checks.redeem_particles - toggle redeem particle/sound effect (default: true)
+  - New Lang keys under lang.check.* for item name/lore, dialog text, and related messages.
