@@ -59,24 +59,27 @@ However iConomyUnlocked hasn't received any updates as of Minecraft version 1.21
 
 ### Permissions:
 - iConomy.admin:
-  - default: false
+  - default: `false`
   - children:
-    - iConomy.admin.account.create: true
-    - iConomy.admin.account.remove: true
-    - iConomy.admin.reset: true
-    - iConomy.admin.bank.create: true
-    - iConomy.admin.empty: true
-    - iConomy.admin.purge: true
-    - iConomy.admin.stats: true
-    - iConomy.admin.grant: true
-    - iConomy.admin.hide: true
-    - iConomy.admin.set: true
-    - iConomy.admin.importiconomy: true
+    - iConomy.admin.account.create: `true`
+    - iConomy.admin.account.remove: `true`
+    - iConomy.admin.reset: `true`
+    - iConomy.admin.bank.create: `true`
+    - iConomy.admin.empty: `true`
+    - iConomy.admin.purge: `true`
+    - iConomy.admin.stats: `true`
+    - iConomy.admin.grant: `true`
+    - iConomy.admin.hide: `true`
+    - iConomy.admin.set: `true`
+    - iConomy.admin.importiconomy: `true`
 - iConomy.access:
-  - default: true
+  - default: `true`
+- iConomy.check:
+  - default: `true`
 - iConomy.payment:
-  - default: true
+  - default: `true`
 - iConomy.rank:
-  - default: true
+  - default: `true`
 - iConomy.list:
-  - default: op
+  - default: `op`
+
