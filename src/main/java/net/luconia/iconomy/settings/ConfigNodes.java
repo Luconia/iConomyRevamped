@@ -2,9 +2,8 @@ package net.luconia.iconomy.settings;
 
 public enum ConfigNodes {
 
-	VERSION_HEADER("version", "", ""),
 	VERSION(
-			"version.version",
+			"version",
 			"",
 			"# This is the current version.  Please do not edit."),
 	CURRENCY_SETTINGS_ROOT("currency_settings","",""),
@@ -85,7 +84,30 @@ public enum ConfigNodes {
 	TRANSACTION_LOGGING_ENABLED("transaction_logging.enabled",
 			"false",
 			"",
-			"# When enabled, iConomyRevamped will create a _Transactions table where transactions are logged to.");
+			"# When enabled, iConomyRevamped will create a _Transactions table where transactions are logged to."),
+
+	CHECKS_ROOT("checks", "", "",
+			"# Physical bearer checks — convert balance into items that anyone can redeem."),
+	CHECKS_MATERIAL("checks.material",
+			"PAPER",
+			"",
+			"# Bukkit Material name used for check items."),
+	CHECKS_MIN_AMOUNT("checks.min_amount",
+			"1",
+			"",
+			"# Minimum amount allowed when writing a check."),
+	CHECKS_MAX_AMOUNT("checks.max_amount",
+			"1000000",
+			"",
+			"# Maximum amount allowed on a single check."),
+	CHECKS_MAX_QUANTITY("checks.max_quantity",
+			"64",
+			"",
+			"# Maximum quantity of checks that can be written in one command."),
+	CHECKS_REDEEM_PARTICLES("checks.redeem_particles",
+			"true",
+			"",
+			"# Play a quick particle burst around the player when a check is redeemed.");
 
 	private final String Root;
 	private final String Default;

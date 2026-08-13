@@ -12,6 +12,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.jetbrains.annotations.NotNull;
 
 import net.luconia.iconomy.commands.MoneyCommand;
+import net.luconia.iconomy.checks.CheckListener;
 import net.luconia.iconomy.listener.PlayerJoinListener;
 import net.luconia.iconomy.providers.VaultEconomy;
 import net.luconia.iconomy.providers.VaultUnlockedEconomy;
@@ -144,6 +145,7 @@ public class iConomyRevamped extends JavaPlugin {
 
 	private void registerListeners() {
 		Bukkit.getPluginManager().registerEvents(new PlayerJoinListener(), plugin);
+		Bukkit.getPluginManager().registerEvents(new CheckListener(), plugin);
 	}
 
 	private void disableWithMessage(String message) {

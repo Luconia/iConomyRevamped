@@ -47,7 +47,21 @@ public enum LangFile {
 	LANG_ERROR_ROOT("lang.error","",""),
 	LANG_ERROR_ACCOUNT_ALREADY_EXISTS("lang.error.already_exists", "Account already exists."),
 	LANG_ERROR_NO_ACCOUNT_FOUND("lang.error.no_account_found", "<rose>No account found belonging to <white>%s<rose>."),
-	LANG_ERROR_CANNOT_AFFORD("lang.error.no_funds", "Sorry, you do not have enough funds to do that.");
+	LANG_ERROR_CANNOT_AFFORD("lang.error.no_funds", "Sorry, you do not have enough funds to do that."),
+
+	LANG_CHECK_ROOT("lang.check", "", ""),
+	LANG_CHECK_ITEM_NAME("lang.check.item_name", "<green>Check: <white>%s"),
+	LANG_CHECK_ITEM_LORE("lang.check.item_lore", "<gray>Click to redeem this check."),
+	LANG_CHECK_WRITTEN("lang.check.written", "<green>Wrote <white>%s<green> check(s) worth <white>%s<green> each."),
+	LANG_CHECK_REDEEMED("lang.check.redeemed", "<green>Redeemed check for <white>%s<green>."),
+	LANG_CHECK_DIALOG_TITLE("lang.check.dialog_title", "Redeem Check"),
+	LANG_CHECK_DIALOG_BODY("lang.check.dialog_body", "Redeem this check for %s?"),
+	LANG_CHECK_DIALOG_CONFIRM("lang.check.dialog_confirm", "Redeem"),
+	LANG_CHECK_DIALOG_CANCEL("lang.check.dialog_cancel", "Cancel"),
+	LANG_CHECK_INVALID("lang.check.invalid", "<rose>That check is no longer valid."),
+	LANG_CHECK_AMOUNT_BOUNDS("lang.check.amount_bounds", "<rose>Check amount must be between <white>%s<rose> and <white>%s<rose>."),
+	LANG_CHECK_QUANTITY_BOUNDS("lang.check.quantity_bounds", "<rose>Check quantity must be between <white>1<rose> and <white>%s<rose>."),
+	LANG_CHECK_INVENTORY_FULL("lang.check.inventory_full", "<rose>Not enough inventory space for those checks.");
 
 	private final String Root;
 	private final String Default;

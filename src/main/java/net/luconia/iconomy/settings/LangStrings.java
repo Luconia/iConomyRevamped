@@ -171,4 +171,52 @@ public class LangStrings {
 	public static String topLine(String num, String name, String amount) {
 		return String.format(getString(LangFile.LANG_TOP_LINE), num, name, amount);
 	}
+
+	public static String checkItemName(String amount) {
+		return String.format(getString(LangFile.LANG_CHECK_ITEM_NAME), amount);
+	}
+
+	public static String checkItemLore() {
+		return getString(LangFile.LANG_CHECK_ITEM_LORE);
+	}
+
+	public static String checkWritten(String quantity, String amount) {
+		return String.format(getString(LangFile.LANG_CHECK_WRITTEN), quantity, amount);
+	}
+
+	public static String checkRedeemed(String amount) {
+		return String.format(getString(LangFile.LANG_CHECK_REDEEMED), amount);
+	}
+
+	public static String checkDialogTitle() {
+		return getString(LangFile.LANG_CHECK_DIALOG_TITLE);
+	}
+
+	public static String checkDialogBody(String amount) {
+		return String.format(getString(LangFile.LANG_CHECK_DIALOG_BODY), amount);
+	}
+
+	public static String checkDialogConfirm() {
+		return getString(LangFile.LANG_CHECK_DIALOG_CONFIRM);
+	}
+
+	public static String checkDialogCancel() {
+		return getString(LangFile.LANG_CHECK_DIALOG_CANCEL);
+	}
+
+	public static String checkInvalid() {
+		return getString(LangFile.LANG_CHECK_INVALID);
+	}
+
+	public static String checkAmountBounds(String min, String max) {
+		return String.format(getString(LangFile.LANG_CHECK_AMOUNT_BOUNDS), min, max);
+	}
+
+	public static String checkQuantityBounds(String max) {
+		return String.format(getString(LangFile.LANG_CHECK_QUANTITY_BOUNDS), max);
+	}
+
+	public static String checkInventoryFull() {
+		return getString(LangFile.LANG_CHECK_INVENTORY_FULL);
+	}
 }

@@ -207,4 +207,24 @@ public class Settings {
 	public static boolean hideNonPlayerAccountsInRankings() {
 		return getBoolean(ConfigNodes.ACCOUNT_SETTINGS_HIDE_NON_PLAYER_ACCOUNTS_IN_RANKINGS);
 	}
+
+	public static String getCheckMaterialName() {
+		return getString(ConfigNodes.CHECKS_MATERIAL);
+	}
+
+	public static double getCheckMinAmount() {
+		return getDouble(ConfigNodes.CHECKS_MIN_AMOUNT);
+	}
+
+	public static double getCheckMaxAmount() {
+		return getDouble(ConfigNodes.CHECKS_MAX_AMOUNT);
+	}
+
+	public static int getCheckMaxQuantity() {
+		return getInt(ConfigNodes.CHECKS_MAX_QUANTITY);
+	}
+
+	public static boolean isCheckRedeemParticles() {
+		return getBoolean(ConfigNodes.CHECKS_REDEEM_PARTICLES);
+	}
 }

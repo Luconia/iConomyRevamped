@@ -66,3 +66,6 @@ permissions:
         default: true
     iConomy.rank:
         default: true
+    iConomy.check:
+        default: true
+        description: Allows writing and redeeming physical checks

@@ -21,6 +21,7 @@ import org.jetbrains.annotations.Nullable;
 import com.iConomy.ConversionAccount;
 import com.iConomy.iConomy;
 import net.luconia.iconomy.iConomyRevamped;
+import net.luconia.iconomy.checks.CheckItem;
 import net.luconia.iconomy.settings.LangStrings;
 import net.luconia.iconomy.settings.Settings;
 import net.luconia.iconomy.system.Account;
@@ -29,6 +30,7 @@ import net.luconia.iconomy.util.Messaging;
 import net.luconia.iconomy.util.Permissions;
 import net.luconia.iconomy.util.PlayerNameCache;
 import net.luconia.iconomy.util.StringMgmt;
+import org.bukkit.inventory.ItemStack;
 
 public class MoneyCommand implements TabExecutor {
 	Logger log = iConomyRevamped.getPlugin().getLogger();
@@ -74,6 +76,7 @@ public class MoneyCommand implements TabExecutor {
 		case "set" -> parseMoneySetCommand(player, sender, isPlayer, split);
 		case "stats", "-s" -> parseMoneyStatsCommand(sender);
 		case "top", "-t" -> parseMoneyTopCommand(player, sender, split);
+		case "check" -> parseMoneyCheckCommand(player, sender, isPlayer, split);
 		case "importiconomy" -> parseImportIconomyCommand(sender, split);
 		default -> parseMoneyPlayerName(sender, name);
 		}
@@ -501,6 +504,63 @@ public class MoneyCommand implements TabExecutor {
 		Messaging.send(sender, "<green>Successfully imported " + count + " accounts from iConomy5.");
 	}
 
+	private void parseMoneyCheckCommand(Player player, CommandSender sender, boolean isPlayer, String[] args) throws CommandException {
+		if (!Permissions.hasPermission(sender, "iConomy.check"))
+			return;
+
+		if (!isPlayer)
+			throw new CommandException("Command unavailable from console.");
+
+		if (args.length < 1) {
+			getMoneyHelp(sender);
+			return;
+		}
+
+		double amount = getValidAmount(args[0]);
+		double min = Settings.getCheckMinAmount();
+		double max = Settings.getCheckMaxAmount();
+		if (amount < min || amount > max)
+			throw new CommandException(LangStrings.checkAmountBounds(Settings.format(min), Settings.format(max)));
+
+		int quantity = 1;
+		if (args.length >= 2) {
+			try {
+				quantity = Integer.parseInt(args[1]);
+			} catch (NumberFormatException e) {
+				throw new CommandException("Invalid quantity: `w" + args[1]);
+			}
+		}
+
+		int maxQty = Settings.getCheckMaxQuantity();
+		if (quantity < 1 || quantity > maxQty)
+			throw new CommandException(LangStrings.checkQuantityBounds(String.valueOf(maxQty)));
+
+		double total = amount * quantity;
+		Account account = Account.getAccount(player.getUniqueId());
+		if (account == null)
+			throw new CommandException(LangStrings.noAccountFound(player.getName()));
+
+		Holdings holdings = account.getHoldings();
+		if (!holdings.hasEnough(total))
+			throw new CommandException(LangStrings.notEnoughFunds());
+
+		holdings.subtract(total);
+		ItemStack checks = CheckItem.create(amount, quantity);
+		var leftover = player.getInventory().addItem(checks);
+		if (!leftover.isEmpty()) {
+			int failed = leftover.values().stream().mapToInt(ItemStack::getAmount).sum();
+			holdings.add(amount * failed);
+			if (failed >= quantity) {
+				throw new CommandException(LangStrings.checkInventoryFull());
+			}
+			quantity -= failed;
+		}
+
+		double balance = holdings.balance();
+		iConomyRevamped.getTransactions().insert(account.getName(), "[Check]", 0.0D, balance, 0.0D, 0.0D, amount * quantity);
+		Messaging.sendMoneyPrefixedMsg(sender, LangStrings.checkWritten(String.valueOf(quantity), Settings.format(amount)));
+	}
+
 	/**
 	 * Help documentation for iConomy all in one method.
 	 *
@@ -527,6 +587,9 @@ public class MoneyCommand implements TabExecutor {
 
 		if (Permissions.hasPermission(sender, "iConomy.payment", true))
 			Messaging.send(sender, "`G  /money `gpay `G<`wplayer`G> <`wamount`G> `y Send money to a player.");
+
+		if (Permissions.hasPermission(sender, "iConomy.check", true))
+			Messaging.send(sender, "`G  /money `gcheck `G<`wamount`G> [`wquantity`G] `y Write physical checks from your balance.");
 
 		if (Permissions.hasPermission(sender, "iConomy.admin.grant", true)) {
 			Messaging.send(sender, "`G  /money `ggrant `G<`wplayer`G> <`wamount`G> [`wsilent`G] `y Give money, optionally silent.");
@@ -561,11 +624,11 @@ public class MoneyCommand implements TabExecutor {
 			Messaging.send(sender, "`G  /money `gstats `y Check all economic stats.");
 	}
 
-	private final List<String> SUB_CMDS = Arrays.asList("?", "rank", "top", "pay", "grant", "set", "hide", "create",
+	private final List<String> SUB_CMDS = Arrays.asList("?", "rank", "top", "pay", "check", "grant", "set", "hide", "create",
 			"remove", "preset", "purge", "empty", "stats", "importiconomy");
 	private final List<String> PLAYER_CMDS = Arrays.asList("rank", "pay", "grant", "set", "hide", "create", "remove",
 			"reset", "marknonplayer");
-	private final List<String> AMOUNT_CMDS = Arrays.asList("pay","grant","set");
+	private final List<String> AMOUNT_CMDS = Arrays.asList("pay","grant","set","check");
 	@Nullable
 	@Override
 	public List<String> onTabComplete(@NotNull CommandSender sender, @NotNull Command command, @NotNull String alias,
@@ -583,8 +646,12 @@ public class MoneyCommand implements TabExecutor {
 				return StringMgmt.filterByStart(PlayerNameCache.getPlayerNames(), args[1]);
 			if (subCmdArg.equals("top"))
 				return Arrays.asList("<amount>");
-		} else if (args.length == 3) {
 			if (AMOUNT_CMDS.contains(subCmdArg))
+				return Arrays.asList("<amount>");
+		} else if (args.length == 3) {
+			if (subCmdArg.equals("check"))
+				return Arrays.asList("<quantity>");
+			if (AMOUNT_CMDS.contains(subCmdArg) && !subCmdArg.equals("check"))
 				return Arrays.asList("<amount>");
 			if (subCmdArg.equals("hide"))
 				return Arrays.asList("true", "false");
