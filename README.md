@@ -39,19 +39,20 @@ However iConomyUnlocked hasn't received any updates as of Minecraft version 1.21
   - ?: Help screen.
   - [playername]: View someone else's balance.
   - rank: View your rank in the richest players list.
-  - rank playername>: View someone else's rank in the richest players list.
+  - rank <playername>: View someone else's rank in the richest players list.
   - top [amount]: View the top richest players.
-  - pay player> amount>: Pay someone money.
-  - grant player> amount> silent>: Add money to someone's account.
-  - grant player> -amount> silent>: Remove money from someone's account.
-  - set player> amount>: Set someone's balance.
-  - hide player> true/false>: Hide or show an account on the top list.
-  - create player>: Creates an account with the default balance for a player.
-  - remove player>: Removes an account.
-  - reset player>: Resets an account to the default balance.
+  - pay <player> <amount>: Pay someone money.
+  - grant <player> <amount> [silent]: Add money to someone's account.
+  - grant <player> -<amount> [silent]: Remove money from someone's account.
+  - set <player> amount>: Set someone's balance.
+  - hide <player> true/false>: Hide or show an account on the top list.
+  - create <player>: Creates an account with the default balance for a player.
+  - remove <player>: Removes an account.
+  - reset <player>: Resets an account to the default balance.
   - purge: Removes all default-balance accounts.
   - empty: Empties all accounts.
   - stats: Checks stats about the economy.
+  - check <amount> [quantity]: Creates a physical money check.
   - importiconomy: Imports accounts from iConomy 5.26.
 
 ---
