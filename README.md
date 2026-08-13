@@ -1,4 +1,6 @@
 ## [iConomyRevamped](https://github.com/Luconia/iConomyRevamped)
+[![View Plugin on Modrinth](https://forthebadge.com/api/badges/generate?panels=2&primaryLabel=Modrinth&secondaryLabel=View+Plugin&primaryBGColor=%2324543d&primaryTextColor=%23ffffff&secondaryBGColor=%2334363c&secondaryTextColor=%23FFFFFF&primaryFontSize=12&primaryFontWeight=600&primaryLetterSpacing=2&primaryFontFamily=Roboto&primaryTextTransform=uppercase&secondaryFontSize=12&secondaryFontWeight=900&secondaryLetterSpacing=2&secondaryFontFamily=Montserrat&secondaryTextTransform=uppercase&primaryIcon=modrinth&primaryIconColor=%23FFFFFF&primaryIconSize=16&primaryIconPosition=left&borderRadius=6)](https://modrinth.com/plugin/iconomy-revamped)
+
 A revamped fork of iConomyUnlocked, originally developed by [LlmDl](https://github.com/LlmDl).
 
 ---
